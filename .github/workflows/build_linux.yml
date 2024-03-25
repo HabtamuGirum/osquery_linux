@@ -313,11 +313,10 @@ jobs:
         path: ${{ steps.packages.outputs.REL_UNSIGNED_RELEASE_DEB_PATH }}
     - name: upload osquery_data_path
       if: matrix.build_type == 'RelWithDebInfo'
-      working-directory: ${{ steps.build_paths.outputs.PACKAGE_BUILD }}
       uses: actions/upload-artifact@v1
       with:
         name: osquery_data_path
-        path: ${{ steps.build_paths.outputs.PACKAGE_DATA }}
+        path: ${{ steps.build_paths.outputs.PACKAGE_DATA }}/control/deb/lib/systemd/system
 
     - name: Store the unsigned debug DEB artifact
       if: matrix.build_type == 'RelWithDebInfo'
