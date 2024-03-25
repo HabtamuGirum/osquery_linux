@@ -26,12 +26,12 @@ if(OSQUERY_PACKAGE_VERSION STREQUAL "")
 endif()
 set(CPACK_PACKAGE_VERSION "${OSQUERY_PACKAGE_VERSION}")
 
-set(CPACK_PACKAGE_DESCRIPTION "osquery is an operating system instrumentation toolchain.")
+set(CPACK_PACKAGE_DESCRIPTION "Vistar MDM . . .")
 set(CPACK_COMPONENT_OSQUERY_DESCRIPTION "${CPACK_PACKAGE_DESCRIPTION}")
 set(CPACK_PACKAGE_NAME "osquery")
-set(CPACK_PACKAGE_VENDOR "osquery")
-set(CPACK_PACKAGE_CONTACT "osquery@osquery.io")
-set(CPACK_PACKAGE_HOMEPAGE_URL "https://osquery.io")
+set(CPACK_PACKAGE_VENDOR "Vistar")
+set(CPACK_PACKAGE_CONTACT "Vistar@vistar.io")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://vistar.cloud")
 
 string(TOLOWER "${CMAKE_SYSTEM_NAME}" platform_name)
 if(platform_name STREQUAL "darwin")
@@ -43,7 +43,7 @@ include("platform/${platform_name}/common.cmake")
 
 string(TOLOWER "${CPACK_GENERATOR}" generator_name)
 include("platform/${platform_name}/${generator_name}.cmake")
-
+set(CPACK_PACKAGE_NAME "Vistar")
 include(CPack)
 
 cpack_add_component("osquery"
