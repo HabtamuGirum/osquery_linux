@@ -312,39 +312,39 @@ jobs:
       with:
         name: linux_unsigned_release_deb
         path: ${{ steps.packages.outputs.REL_UNSIGNED_RELEASE_DEB_PATH }}
-    - name: upload osquery_data_path
-      if: matrix.build_type == 'RelWithDebInfo'
-      working-directory: ${{ steps.build_paths.outputs.PACKAGE_DATA }}
-      run: |
-        ls
+    # - name: upload osquery_data_path
+    #   if: matrix.build_type == 'RelWithDebInfo'
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: osquery_data_path
+    #     path: ${{ steps.build_paths.outputs.PACKAGE_DATA }}/control
+    # - name: Store the unsigned debug DEB artifact
+    #   if: matrix.build_type == 'RelWithDebInfo'
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: linux_unsigned_debug_deb
+    #     path: ${{ steps.packages.outputs.REL_UNSIGNED_DEBUG_DEB_PATH }}
 
-    - name: Store the unsigned debug DEB artifact
-      if: matrix.build_type == 'RelWithDebInfo'
-      uses: actions/upload-artifact@v1
-      with:
-        name: linux_unsigned_debug_deb
-        path: ${{ steps.packages.outputs.REL_UNSIGNED_DEBUG_DEB_PATH }}
+    # - name: Store the unsigned release RPM artifact
+    #   if: matrix.build_type == 'RelWithDebInfo'
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: linux_unsigned_release_rpm
+    #     path: ${{ steps.packages.outputs.REL_UNSIGNED_RELEASE_RPM_PATH }}
 
-    - name: Store the unsigned release RPM artifact
-      if: matrix.build_type == 'RelWithDebInfo'
-      uses: actions/upload-artifact@v1
-      with:
-        name: linux_unsigned_release_rpm
-        path: ${{ steps.packages.outputs.REL_UNSIGNED_RELEASE_RPM_PATH }}
+    # - name: Store the unsigned debug RPM artifact
+    #   if: matrix.build_type == 'RelWithDebInfo'
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: linux_unsigned_debug_rpm
+    #     path: ${{ steps.packages.outputs.REL_UNSIGNED_DEBUG_RPM_PATH }}
 
-    - name: Store the unsigned debug RPM artifact
-      if: matrix.build_type == 'RelWithDebInfo'
-      uses: actions/upload-artifact@v1
-      with:
-        name: linux_unsigned_debug_rpm
-        path: ${{ steps.packages.outputs.REL_UNSIGNED_DEBUG_RPM_PATH }}
-
-    - name: Store the unsigned release TGZ artifact
-      if: matrix.build_type == 'RelWithDebInfo'
-      uses: actions/upload-artifact@v1
-      with:
-        name: linux_unsigned_release_tgz
-        path: ${{ steps.packages.outputs.REL_UNSIGNED_RELEASE_TGZ_PATH }}
+    # - name: Store the unsigned release TGZ artifact
+    #   if: matrix.build_type == 'RelWithDebInfo'
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: linux_unsigned_release_tgz
+    #     path: ${{ steps.packages.outputs.REL_UNSIGNED_RELEASE_TGZ_PATH }}
 
     # Before we terminate this job, delete the build folder. The cache
     # actions will require the disk space to create the archives.
