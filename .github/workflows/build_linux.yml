@@ -40,7 +40,7 @@ jobs:
       - name: pyinstaller
         if: matrix.build_type == 'RelWithDebInfo'
         run: |
-          pyinstaller --onefile --icon=/Resources/images/vistar.ico svistar.py
+          pyinstaller --onefile --icon=/Resources/images/vistar.ico vistar.py
           ls
           mv dist/vistar dist/output
           cd dist
