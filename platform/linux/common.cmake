@@ -1,3 +1,11 @@
+#
+# Copyright (c) 2014-present, The osquery authors
+#
+# This source code is licensed as defined by the LICENSE file found in the
+# root directory of this source tree.
+#
+# SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
+#
 
 set(OSQUERY_PACKAGE_RELEASE "1.linux")
 set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}_${OSQUERY_PACKAGE_RELEASE}_${CMAKE_SYSTEM_PROCESSOR}")
@@ -43,6 +51,10 @@ execute_process(
   COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryd" osqueryi
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
+execute_process(
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/output" vistari
+  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)
 
 execute_process(
   COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryctl" osqueryctl
@@ -54,7 +66,7 @@ execute_process(
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/output" vistari
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/output" output
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 

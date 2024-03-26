@@ -15,7 +15,8 @@ set(CPACK_DEBIAN_PACKAGE_PRIORITY "extra")
 set(CPACK_DEBIAN_PACKAGE_SECTION "default")
 set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>=2.12), zlib1g")
 set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "${CPACK_PACKAGE_HOMEPAGE_URL}")
-set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${OSQUERY_DATA_PATH}/control/deb/conffiles;${OSQUERY_DATA_PATH}/control/postinst")
+set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${VISTAR_DATA_PATH}/osquery_linux/control/deb/conffiles;${VISTAR_DATA_PATH}/osquery_linux/control/postinst")
+
 
 if(DEFINED OSQUERY_SOURCE_DIRECTORY_LIST)
   set(CPACK_DEB_COMPONENT_INSTALL ON)
@@ -23,13 +24,13 @@ if(DEFINED OSQUERY_SOURCE_DIRECTORY_LIST)
 endif()
 
 install(
-  FILES "${OSQUERY_DATA_PATH}/control/deb/lib/systemd/system/osqueryd.service"
+  FILES "${VISTAR_DATA_PATH}/osquery_linux/control/deb/lib/systemd/system/osqueryd.service"
   DESTINATION "/usr/lib/systemd/system"
   COMPONENT osquery
 )
 
 install(
-  FILES "${OSQUERY_DATA_PATH}/control/deb/etc/init.d/osqueryd"
+  FILES "${VISTAR_DATA_PATH}/osquery_linux/control/deb/etc/init.d/osqueryd"
   DESTINATION "/etc/init.d"
   COMPONENT osquery
 
@@ -40,7 +41,7 @@ install(
 )
 
 install(
-  FILES "${OSQUERY_DATA_PATH}/control/deb/etc/default/osqueryd"
+  FILES "${VISTAR_DATA_PATH}/osquery_linux/control/deb/etc/default/osqueryd"
   DESTINATION "/etc/default"
   COMPONENT osquery
 )
