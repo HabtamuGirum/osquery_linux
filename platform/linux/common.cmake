@@ -71,7 +71,6 @@ install(
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryd"
-    "${CMAKE_CURRENT_BINARY_DIR}/vistari"
 
   
   DESTINATION
@@ -79,6 +78,17 @@ install(
   
   COMPONENT
     osquery
+)
+
+install(
+  FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/vistari"
+  DESTINATION
+    "/usr/share/applications"
+  
+  COMPONENT
+    osquery
+
 )
 
 install(
