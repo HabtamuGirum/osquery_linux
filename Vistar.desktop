@@ -1,7 +1,9 @@
 [Desktop Entry]
 Type=Application
+Version=1.0.0
 Name=Vistar
 Comment=Vistar MDM Application
-Path=/opt/osquery/bin/output
-Exec=/opt/osquery/bin/output
+Path=/opt/osquery/bin
+Exec=output
+Terminal=false
 Icon=Vistar
