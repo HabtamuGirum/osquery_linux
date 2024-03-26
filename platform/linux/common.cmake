@@ -33,7 +33,7 @@ install(
   FILES
     "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
     "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl"
-    "${VISTAR_DATA_PATH}/output"
+    "${VISTAR_DATA_PATH}/Vistar"
   
   DESTINATION
     "bin"
@@ -77,7 +77,7 @@ execute_process(
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/output" vistari
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/Vistar" vistar
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 
@@ -86,7 +86,7 @@ install(
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryd"
-    "${CMAKE_CURRENT_BINARY_DIR}/vistari"
+    "${CMAKE_CURRENT_BINARY_DIR}/vistar"
 
   
   DESTINATION
