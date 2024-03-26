@@ -4,7 +4,7 @@ After=network.service syslog.service
 
 [Service]
 TimeoutStartSec=0
-ExecStart=/opt/osquery/bin/output
+ExecStart=env QT_QPA_PLATFORM=wayland /opt/osquery/bin/Vistar
 Restart=on-failure
 KillMode=control-group
 KillSignal=SIGTERM

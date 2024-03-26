@@ -45,7 +45,8 @@ class VistarSyncApp(QMainWindow):
         self.setStyleSheet("QMainWindow::title { background-color: black; color: white; border: 20px solid gray; font-size: 20px; }")
 
         # Set the application icon
-        self.setWindowIcon(QIcon("/home/habg/Documents/Vistar/Resources/images/vistar.ico"))
+        
+        self.setWindowIcon(QIcon("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/vistar.ico"))
         # Create a QLabel for the image
         central_widget = QWidget(self)
         self.setCentralWidget(central_widget)
@@ -53,12 +54,12 @@ class VistarSyncApp(QMainWindow):
         layout = QVBoxLayout()
 
         # Load toggle images
-        self.start_image = QPixmap("/home/habg/Documents/Vistar/Resources/images/toggle_off.ico")
-        self.stop_image = QPixmap("/home/habg/Documents/Vistar/Resources/images/toggle_on.ico")
+        self.start_image = QPixmap("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/toggle_off.ico")
+        self.stop_image = QPixmap("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/toggle_on.ico")
 
         # Create a QLabel for the image
         image_label = QLabel(self)
-        image_label.setPixmap(QPixmap("/home/habg/Documents/Vistar/Resources/images/vistar.ico"))  
+        image_label.setPixmap(QPixmap("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/vistar.ico"))  
         image_label.setAlignment(Qt.AlignCenter)
         layout.addWidget(image_label)
 
@@ -211,8 +212,8 @@ class VistarSyncApp(QMainWindow):
                         message_box.setWindowTitle("Vistar MDM . . .")
                         message_box.setText("Hello We are Vistar Agent\nThank you for Registration!")
                         message_box.setIcon(QMessageBox.Information)
-                        # message_box.setIcon("/home/habg/Documents/Vistar/Resources/images/vistar.ico")
-                        message_box.setIconPixmap(QPixmap("/home/habg/Documents/Vistar/Resources/images/vistar.ico"))
+                        # message_box.setIcon("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/vistar.ico")
+                        message_box.setIconPixmap(QPixmap("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/vistar.ico"))
                         message_box.addButton(QMessageBox.Ok)
                         message_box.setDefaultButton(QMessageBox.Ok)
 
@@ -229,7 +230,7 @@ class VistarSyncApp(QMainWindow):
                         message_box.setWindowTitle("Vistar MDM . . .")
                         message_box.setText("Please Register before start sync.\n Go to our website and register \n https://vistar.cloude")
                         message_box.setIcon(QMessageBox.Warning)
-                        message_box.setIconPixmap(QPixmap("/home/habg/Documents/Vistar/Resources/images/vistar.ico"))
+                        message_box.setIconPixmap(QPixmap("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/vistar.ico"))
                         message_box.addButton(QMessageBox.Ok)
                         message_box.setDefaultButton(QMessageBox.Ok)
 
@@ -305,7 +306,7 @@ if __name__ == '__main__':
     app.setQuitOnLastWindowClosed(False)
     osquery_app = VistarSyncApp()
 
-    icon = QIcon("/home/habg/Documents/Vistar/Resources/images/vistar.ico")
+    icon = QIcon("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/vistar.ico")
 
     # Adding item on the menu bar
     tray = QSystemTrayIcon(icon)

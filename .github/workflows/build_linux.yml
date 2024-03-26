@@ -42,7 +42,7 @@ jobs:
         run: |
           pyinstaller --onefile --icon=/Resources/images/vistar.ico vistar.py
           ls
-          mv dist/vistar dist/output
+          mv dist/vistar dist/Vistar
           cd dist
           ls
       - name: upload artifact
@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build-output
-          path: dist/output
+          path: dist/Vistar
 
 
   build_linux:
