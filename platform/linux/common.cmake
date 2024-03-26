@@ -51,10 +51,6 @@ execute_process(
   COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryd" osqueryi
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
-execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/output" vistari
-  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
-)
 
 execute_process(
   COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryctl" osqueryctl
@@ -66,7 +62,7 @@ execute_process(
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/output" output
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/output" vistari
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 
