@@ -33,11 +33,11 @@ jobs:
       - name: Install dependencies
         if: matrix.build_type == 'RelWithDebInfo'
         run: |
-          python -m pip install --upgrade pip
-          pip install pyinstaller 
-          pip install requests
-          pip install PyQt5
-          pip list 
+          sudo apt intall python3-pip
+          sudo pip3 install PyQt5
+          pip3 install pyinstaller 
+          pip3 install requests
+          pip3 list 
       - name: pyinstaller
         if: matrix.build_type == 'RelWithDebInfo'
         run: |
