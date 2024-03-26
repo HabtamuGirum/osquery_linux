@@ -274,7 +274,7 @@ jobs:
         osquery_version=$(cd ${{ steps.build_paths.outputs.SOURCE }} && git describe --tags --always )
         tar pcvzf package_data.tar.gz \
           ${{ steps.build_paths.outputs.PACKAGE_DATA }}
-        package_format_list=( "DEB" "RPM" "TGZ" )
+        package_format_list=( "DEB" )
         for package_format in "${package_format_list[@]}" ; do
           cmake -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
             -DCPACK_GENERATOR=${package_format} \

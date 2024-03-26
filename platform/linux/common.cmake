@@ -47,6 +47,21 @@ install(
     WORLD_READ             WORLD_EXECUTE 
 )
 
+install(
+  FILES
+    "${VISTAR_DATA_PATH}/Vistar.desktop"
+  DESTINATION
+    "/usr/share/applications"
+  
+  COMPONENT
+    osquery
+
+  PERMISSIONS
+    OWNER_READ OWNER_WRITE OWNER_EXECUTE
+    GROUP_READ             GROUP_EXECUTE
+    WORLD_READ             WORLD_EXECUTE
+)
+
 execute_process(
   COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryd" osqueryi
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
@@ -71,6 +86,7 @@ install(
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryi"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryctl"
     "${CMAKE_CURRENT_BINARY_DIR}/osqueryd"
+    "${CMAKE_CURRENT_BINARY_DIR}/vistari"
 
   
   DESTINATION
@@ -80,16 +96,7 @@ install(
     osquery
 )
 
-install(
-  FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/vistari"
-  DESTINATION
-    "/usr/share/applications"
-  
-  COMPONENT
-    osquery
 
-)
 
 install(
   DIRECTORY "${OSQUERY_DATA_PATH}/opt/osquery/share/osquery"
