@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         build_type: [Release, RelWithDebInfo, Debug]
-        os: [ubuntu-22.04]
+        os: [ubuntu-20.04]
 
     steps:
       - name: Check out code
