@@ -31,7 +31,6 @@ jobs:
           python-version: '3.11'  
 
       - name: Install dependencies
-        if: matrix.build_type == 'RelWithDebInfo'
         run: |
           pip3 install PyQt5
           pip3 install pyinstaller 
