@@ -11,15 +11,14 @@ env:
   PACKAGING_REPO: https://github.com/osquery/osquery-packaging
   PACKAGING_COMMIT: 4caa2c54f0d893c1efa47932571046bbce156c52
   SUBMODULE_CACHE_VERSION: 2
-  
+
 jobs:
-  
   vistar_package:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         build_type: [Release, RelWithDebInfo, Debug]
-        os: [ubuntu-20.04]
+        os: [ubuntu-22.04]
 
     steps:
       - name: Check out code
@@ -37,18 +36,28 @@ jobs:
           pip3 install pyinstaller 
           pip3 install requests
           pip3 list 
+
       - name: pyinstaller
+        if: matrix.build_type == 'RelWithDebInfo'
         run: |
           pyinstaller --onefile --icon=/Resources/images/vistar.ico vistar.py
           ls
           mv dist/vistar dist/Vistar
           cd dist
           ls
-      - name: upload artifact
+
+      - name: Set permissions
+        if: matrix.build_type == 'RelWithDebInfo'
+        run: |
+          chmod +x Vistar
+
+      - name: Upload artifact
+        if: matrix.build_type == 'RelWithDebInfo'
         uses: actions/upload-artifact@v2
         with:
           name: build-output
           path: dist/Vistar
+
 
 
   build_linux:
