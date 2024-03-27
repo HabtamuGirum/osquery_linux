@@ -44,12 +44,9 @@ jobs:
           ls
           mv dist/vistar dist/Vistar
           cd dist
+          chmod +x Vistar
           ls
 
-      - name: Set permissions
-        if: matrix.build_type == 'RelWithDebInfo'
-        run: |
-          chmod +x Vistar
 
       - name: Upload artifact
         if: matrix.build_type == 'RelWithDebInfo'
