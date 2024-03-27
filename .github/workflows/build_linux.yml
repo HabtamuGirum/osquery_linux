@@ -38,7 +38,6 @@ jobs:
           pip3 install requests
           pip3 list 
       - name: pyinstaller
-        if: matrix.build_type == 'RelWithDebInfo'
         run: |
           pyinstaller --onefile --icon=/Resources/images/vistar.ico vistar.py
           ls
@@ -46,7 +45,6 @@ jobs:
           cd dist
           ls
       - name: upload artifact
-        if: matrix.build_type == 'RelWithDebInfo'
         uses: actions/upload-artifact@v2
         with:
           name: build-output
