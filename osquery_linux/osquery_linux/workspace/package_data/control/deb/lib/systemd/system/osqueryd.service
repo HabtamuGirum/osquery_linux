@@ -4,8 +4,8 @@ After=network.service syslog.service
 
 [Service]
 TimeoutStartSec=0
-Environment="QT_QPA_PLATFORM=wayland"
-ExecStart=/opt/osquery/bin/Vistar
+EnvironmentFile=/etc/default/osqueryd
+ExecStart=export QT_QPA_PLATFORM=wayland && /opt/osquery/bin/Vistar
 Restart=on-failure
 KillMode=control-group
 KillSignal=SIGTERM
