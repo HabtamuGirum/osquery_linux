@@ -41,6 +41,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
       - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
@@ -52,21 +60,10 @@ jobs:
           ls
           cd dist
           ls
-
-      - name: Check out code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
       - name: Upload Artifact from Job-2
         uses: actions/upload-artifact@v2
         with:
           name: your-executable-from-job-2
-          path: dist/vistar
-      - name: List contents of dist directory
-        run: |
-          ls dist/
-          ls dist/vistar  
+          path: dist/
+        
 
