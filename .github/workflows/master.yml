@@ -31,7 +31,6 @@ jobs:
     - name: Build executable
       run: |
         pyinstaller --onefile vistar.py 
-        ls dist/ 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
@@ -42,11 +41,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: your-executable-x64 
-          path: dist/
+      # - name: Download Artifact
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: your-executable-x64 
+      #     path: dist/
 
       - name: path
         run: |
@@ -66,7 +65,7 @@ jobs:
         with:
           name: your-executable-from-job-2
           path: dist/vistar
-      - name: Debug: List contents of dist directory
+      - name: List contents of dist directory
         run: |
           ls dist/
           ls dist/vistar  
