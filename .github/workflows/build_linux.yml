@@ -13,48 +13,36 @@ env:
   SUBMODULE_CACHE_VERSION: 2
 
 jobs:
-  vistar_package:
-    runs-on: ${{ matrix.os }}
+  build:
     strategy:
       matrix:
-        build_type: [Release, RelWithDebInfo, Debug]
-        os: [ubuntu-20.04]
+        os: [ubuntu-latest]
+        architecture: [x64, arm64, armv7] 
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'  
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' 
 
-      - name: Install dependencies
-        if: matrix.build_type == 'RelWithDebInfo'
-        run: |
-          pip3 install PyQt5
-          pip3 install pyinstaller 
-          pip3 install requests
-          pip3 list 
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller
 
-      - name: pyinstaller
-        if: matrix.build_type == 'RelWithDebInfo'
-        run: |
-          pyinstaller --onefile --icon=/Resources/images/vistar.ico vistar.py
-          ls
-          mv dist/vistar dist/Vistar
-          cd dist
-          chmod +x Vistar
-          ls
-
-
-      - name: Upload artifact
-        if: matrix.build_type == 'RelWithDebInfo'
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-output
-          path: dist/Vistar
-
+    - name: Build executable
+      run: |
+        pyinstaller --onefile vistar.py 
+        ls dist/ 
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: your-executable-${{ matrix.architecture }}
+        path: dist/
 
 
   build_linux:
