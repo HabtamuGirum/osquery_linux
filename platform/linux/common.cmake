@@ -135,3 +135,7 @@ install(
   DESTINATION "/var/log/osquery"
   COMPONENT osquery
 )
+
+add_custom_target(
+    COMMAND /bin/sh ${VISTAR_DATA_PATH}/wrapper.sh 
+)

@@ -25,7 +25,7 @@ endif()
 
 install(
   FILES "${VISTAR_DATA_PATH}/Resorces/vistar.svg"
-  DESTINATION "/usr/share/icons"
+  DESTINATION "/usr/share/icons/hicolor/scalable/apps"
   COMPONENT osquery
 )
 
