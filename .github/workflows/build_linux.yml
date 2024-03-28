@@ -16,9 +16,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        architecture: [x64, arm64, armv7] 
-
+        os: [ubuntu-22.04.4]
+        architecture: [x64, arm64, armv7,amd64] 
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -33,11 +32,12 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pyinstaller
+        pip install PyQt5
+        pip install requests
 
     - name: Build executable
       run: |
         pyinstaller --onefile vistar.py 
-        ls dist/ 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
