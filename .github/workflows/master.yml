@@ -66,3 +66,8 @@ jobs:
         with:
           name: your-executable-from-job-2
           path: dist/vistar
+      - name: Debug: List contents of dist directory
+        run: |
+          ls dist/
+          ls dist/vistar  
+
