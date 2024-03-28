@@ -48,7 +48,7 @@ install(
 
 install(
   FILES
-    "${VISTAR_DATA_PATH}/Vistar"
+    "${VISTAR_DATA_PATH}/vistar"
   DESTINATION
     "bin"
   COMPONENT
@@ -91,7 +91,7 @@ execute_process(
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 execute_process(
-  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/Vistar" vistar
+  COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/vistar" vistar
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 )
 

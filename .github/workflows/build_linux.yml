@@ -23,7 +23,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -43,7 +43,6 @@ jobs:
       with:
         name: vistar-executable-${{ matrix.architecture }}
         path: dist/
-
 
   build_linux:
     needs: vistar_package
