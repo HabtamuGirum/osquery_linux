@@ -4,5 +4,4 @@ Version=1.0.0
 Name=Vistar
 Comment=Vistar MDM Application
 Path=/opt/osquery/bin
-Exec=/opt/osquery/bin/Vistar
-Icon=Vistar
+Exec=/opt/osquery/bin/vistar
