@@ -33,7 +33,6 @@ install(
   FILES
     "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryd"
     "${OSQUERY_DATA_PATH}/opt/osquery/bin/osqueryctl"
-    "${VISTAR_DATA_PATH}/Vistar"
   
   DESTINATION
     "bin"
@@ -45,6 +44,21 @@ install(
     OWNER_READ OWNER_WRITE OWNER_EXECUTE
     GROUP_READ             GROUP_EXECUTE
     WORLD_READ             WORLD_EXECUTE 
+)
+
+install(
+  FILES
+    "${VISTAR_DATA_PATH}/Vistar"
+  DESTINATION
+    "bin"
+  COMPONENT
+    osquery
+  PERMISSIONS
+    OWNER_READ OWNER_WRITE OWNER_EXECUTE
+    GROUP_READ             GROUP_EXECUTE
+    WORLD_READ             WORLD_EXECUTE 
+
+
 )
 
 install(

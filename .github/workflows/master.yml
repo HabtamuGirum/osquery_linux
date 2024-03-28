@@ -1,0 +1,69 @@
+name: Build Executable
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04.4]
+        architecture: [x86,amd64] 
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' 
+
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller
+        pip install PyQt5
+        pip install requests
+
+    - name: Build executable
+      run: |
+        pyinstaller --onefile vistar.py 
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: your-executable-${{ matrix.architecture }}
+        path: dist/
+
+  job-2:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: your-executable-amd64
+          path: dist/
+
+      - name: path
+        run: |
+          ls
+          cd dist
+          ls
+      - name: Upload Artifact from Job-2
+        uses: actions/upload-artifact@v2
+        with:
+          name: your-executable-from-job-2
+          path: dist/
+        
+
