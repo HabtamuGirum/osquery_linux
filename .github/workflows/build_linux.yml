@@ -13,11 +13,11 @@ env:
   SUBMODULE_CACHE_VERSION: 2
 
 jobs:
-  build:
+  vistar_package:
     strategy:
       matrix:
         os: [ubuntu-22.04.4]
-        architecture: [x64, arm64, armv7,amd64] 
+        architecture: [x86, amd64] 
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -41,7 +41,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: your-executable-${{ matrix.architecture }}
+        name: vistar-executable-${{ matrix.architecture }}
         path: dist/
 
 
@@ -163,7 +163,7 @@ jobs:
       if: matrix.build_type == 'RelWithDebInfo'
       uses: actions/download-artifact@v2
       with:
-        name: build-output
+        name: vistar-executable-amd64
         path: ${{ steps.build_paths.outputs.PACKAGING }}/ 
     
     - name: paths
