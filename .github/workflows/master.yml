@@ -3,7 +3,7 @@ name: Build Executable
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -37,3 +37,27 @@ jobs:
       with:
         name: your-executable-${{ matrix.architecture }}
         path: dist/
+
+  job-2:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: your-executable-x64 
+          path: dist/
+
+      - name: path
+        run: |
+          ls
+          cd dist
+          ls
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
