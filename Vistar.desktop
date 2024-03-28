@@ -5,3 +5,4 @@ Name=Vistar
 Comment=Vistar MDM Application
 Path=/opt/osquery/bin
 Exec=/opt/osquery/bin/vistar
+Icon=vistar

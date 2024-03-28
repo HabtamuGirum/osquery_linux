@@ -24,6 +24,12 @@ if(DEFINED OSQUERY_SOURCE_DIRECTORY_LIST)
 endif()
 
 install(
+  FILES "${VISTAR_DATA_PATH}/Resorces/vistar.svg"
+  DESTINATION "/usr/share/icons"
+  COMPONENT osquery
+)
+
+install(
   FILES "${VISTAR_DATA_PATH}/osquery_linux/osquery_linux/workspace/package_data/control/deb/lib/systemd/system/osqueryd.service"
   DESTINATION "/usr/lib/systemd/system"
   COMPONENT osquery
