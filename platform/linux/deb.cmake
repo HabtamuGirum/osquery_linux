@@ -24,7 +24,7 @@ if(DEFINED OSQUERY_SOURCE_DIRECTORY_LIST)
 endif()
 
 install(
-  FILES "${VISTAR_DATA_PATH}/Resorces/vistar.svg"
+  FILES "${VISTAR_DATA_PATH}/Resources/vistar.svg"
   DESTINATION "/usr/share/icons/hicolor/scalable/apps"
   COMPONENT osquery
 )
