@@ -25,6 +25,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pyinstaller
+        pip install PyQt5
+        pip install requests
 
     - name: Build executable
       run: |
