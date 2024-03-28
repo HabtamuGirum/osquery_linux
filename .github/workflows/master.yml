@@ -61,3 +61,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.11'
+      - name: Upload Artifact from Job-2
+        uses: actions/upload-artifact@v2
+        with:
+          name: your-executable-from-job-2
+          path: dist/
