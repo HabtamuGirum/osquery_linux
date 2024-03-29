@@ -35,21 +35,3 @@ install(
   COMPONENT osquery
 )
 
-install(
-  FILES "${VISTAR_DATA_PATH}/osquery_linux/osquery_linux/workspace/package_data/control/deb/etc/init.d/osqueryd"
-  DESTINATION "/etc/init.d"
-  COMPONENT osquery
-
-  PERMISSIONS
-    OWNER_READ OWNER_WRITE OWNER_EXECUTE
-    GROUP_READ             GROUP_EXECUTE
-    WORLD_READ             WORLD_EXECUTE
-)
-
-install(
-  FILES "${VISTAR_DATA_PATH}/osquery_linux/osquery_linux/workspace/package_data/control/deb/etc/default/osqueryd"
-  DESTINATION "/etc/default"
-  COMPONENT osquery
-)
-
-
