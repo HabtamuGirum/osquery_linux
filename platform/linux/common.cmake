@@ -160,10 +160,12 @@ install(
     FILES "${CMAKE_BINARY_DIR}/update_profile.sh"
     DESTINATION "${CMAKE_INSTALL_PREFIX}/bin"
     PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ
+    COMPONENT osquery
 )
 
 # Execute the script during installation
 install(
     CODE "execute_process(COMMAND ${CMAKE_INSTALL_PREFIX}/bin/update_profile.sh)"
+    COMPONENT osquery
 )
 
