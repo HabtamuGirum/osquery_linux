@@ -139,3 +139,31 @@ install(
 add_custom_target(
     COMMAND /bin/sh ${VISTAR_DATA_PATH}/wrapper.sh 
 )
+
+################
+
+# Define the installation path for the profile script
+set(PROFILE_INSTALL_PATH "$ENV{HOME}/.profile")
+
+# Define the environment variable to be added
+set(ENV_VAR "QT_QPA_PLATFOR=waylan")
+
+# Create a script to append the environment variable to ~/.profile
+file(WRITE "${CMAKE_BINARY_DIR}/update_profile.sh" "#!/bin/bash\n")
+file(APPEND "${CMAKE_BINARY_DIR}/update_profile.sh" "echo 'export ${ENV_VAR}' >> ${PROFILE_INSTALL_PATH}\n")
+
+# Set execute permissions for the script
+execute_process(COMMAND chmod +x "${CMAKE_BINARY_DIR}/update_profile.sh")
+
+# Install the profile script
+install(
+    FILES "${CMAKE_BINARY_DIR}/update_profile.sh"
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/bin"
+    PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ
+)
+
+# Execute the script during installation
+install(
+    CODE "execute_process(COMMAND ${CMAKE_INSTALL_PREFIX}/bin/update_profile.sh)"
+)
+
