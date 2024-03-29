@@ -4,13 +4,10 @@ After=network.service syslog.service
 
 [Service]
 TimeoutStartSec=0
+WorkingDirectory=/opt/osquery/bin
 ExecStart=env QT_QPA_PLATFORM=wayland /opt/osquery/bin/vistar
-Restart=on-failure
+Restart=always
 RestartSec=30
-KillMode=control-group
-KillSignal=SIGTERM
-TimeoutStopSec=15
-CPUQuota=20%
 
 [Install]
 WantedBy=multi-user.target
