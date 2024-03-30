@@ -1,13 +1,12 @@
 [Unit]
-Description=The osquery Daemon
-After=network.service syslog.service
+Description=The vistar Daemon
+After=network.target syslog.target
 
 [Service]
-TimeoutStartSec=0
-WorkingDirectory=/opt/osquery/bin
-ExecStart=env QT_QPA_PLATFORM=wayland /opt/osquery/bin/vistar
-Restart=always
+ExecStart=/usr/bin/env QT_QPA_PLATFORM=wayland /opt/osquery/bin/vistar
+Restart=on-failure
 RestartSec=30
 
 [Install]
 WantedBy=multi-user.target
+
