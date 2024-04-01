@@ -3,8 +3,9 @@ Description=Vistar Service
 After=network.target
 
 [Service]
+WorkingDirectory=/opt/osquery/bin
 Environment="QT_QPA_PLATFORM=wayland"
-ExecStart=env QT_QPA_PLATFORM=wayland /opt/osquery/bin/vistar
+ExecStart=/bin/bash /opt/osquery/bin/vistar.sh
 Restart=always
 
 [Install]
