@@ -54,8 +54,8 @@ class VistarSyncApp(QMainWindow):
         layout = QVBoxLayout()
 
         # Load toggle images
-        self.start_image = QPixmap("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/toggle_off.ico")
-        self.stop_image = QPixmap("/home/habtamug/Documents/Vistar/osquery_linux/Resources/images/toggle_on.ico")
+        self.start_image = QPixmap("/usr/share/icons/hicolor/scalable/apps/toggle_off.ico")
+        self.stop_image = QPixmap("/usr/share/icons/hicolor/scalable/apps/toggle_on.ico")
 
         # Create a QLabel for the image
         image_label = QLabel(self)
