@@ -30,8 +30,7 @@ install(
 )
 
 install(
-  FILES "${VISTAR_DATA_PATH}/osquery_linux/osquery_linux/workspace/package_data/control/deb/lib/systemd/system/Vistar.service"
+  FILES "${VISTAR_DATA_PATH}/Vistar.service"
   DESTINATION "/usr/lib/systemd/system"
   COMPONENT osquery
 )
-
