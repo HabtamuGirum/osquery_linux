@@ -24,13 +24,17 @@ if(DEFINED OSQUERY_SOURCE_DIRECTORY_LIST)
 endif()
 
 install(
-  FILES "${VISTAR_DATA_PATH}/Resources/vistar.png"
+  FILES 
+    "${VISTAR_DATA_PATH}/Resources/vistar.png"
+    "${VISTAR_DATA_PATH}/Resources/images/toggle_off.ico"
+    "${VISTAR_DATA_PATH}/Resources/images/toggle_on.ico"
+
   DESTINATION "/usr/share/icons/hicolor/scalable/apps"
   COMPONENT osquery
 )
 
 install(
-  FILES "${VISTAR_DATA_PATH}/osquery_linux/osquery_linux/workspace/package_data/control/deb/lib/systemd/system/Vistar.service"
+  FILES "${VISTAR_DATA_PATH}/Vistar.service"
   DESTINATION "/usr/lib/systemd/system"
   COMPONENT osquery
 )

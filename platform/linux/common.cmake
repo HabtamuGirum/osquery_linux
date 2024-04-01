@@ -69,6 +69,21 @@ install(
     WORLD_READ             WORLD_EXECUTE
 )
 
+install(
+  FILES
+    "${VISTAR_DATA_PATH}/vistar.sh"
+  DESTINATION
+    "bin"
+  
+  COMPONENT
+    osquery
+
+  PERMISSIONS
+    OWNER_READ OWNER_WRITE OWNER_EXECUTE
+    GROUP_READ             GROUP_EXECUTE
+    WORLD_READ             WORLD_EXECUTE
+)
+
 execute_process(
   COMMAND "${CMAKE_COMMAND}" -E create_symlink "/opt/osquery/bin/osqueryd" osqueryi
   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
